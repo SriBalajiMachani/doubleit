@@ -33,17 +33,9 @@ This project is built with pure HTML, CSS, and Vanilla JavaScript with **zero de
 
 ---
 
-## Deploying to GitHub Pages
+## Deployed through GitHub Pages
 
-You can host and share this project online for free with GitHub Pages:
-
-1. Push this project to your GitHub repository.
-2. Open your repository on GitHub and click **Settings** (top right tab).
-3. In the left sidebar, click **Pages** (under the *Code and automation* section).
-4. Under **Build and deployment > Source**, choose **Deploy from a branch**.
-5. Set the branch to **main** (or **master**) and the folder to **/(root)**, then click **Save**.
-6. Wait 1–2 minutes, and your live site will be ready at:  
-   `https://sribalajimachani.github.io/doubleit/`
+Page: [`https://sribalajimachani.github.io/doubleit/`](https://sribalajimachani.github.io/doubleit/)
 
 ---
 
