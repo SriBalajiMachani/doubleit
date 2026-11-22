@@ -1,0 +1,2 @@
+Group 5. "Double It" Recipe Book Goal: Make a button change numbers on the screen. • Page 1 (Menu): Show pictures of 2 meals (e.g., Cake and Pizza). Click one to go to Page 2. • Page 2 (Recipe): List the ingredients for 1 person (e.g., 2 eggs, 1 cup flour). Add a button that says "Double Recipe". • JavaScript: When the user clicks "Double Recipe", change the text on the screen so all the numbers multiply by 2 (e.g., changes to 4 eggs, 2 cups flour).
+
