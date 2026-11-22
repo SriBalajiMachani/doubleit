@@ -1,6 +1,11 @@
 # "Double It" Recipe Book
 
-A simple and interactive recipe web application built for the **Mobile & Cloud Computing (MCC)** course by **Group 5**.
+A simple and interactive recipe web application developed by **Group 5**.
+
+### Course Information
+- **Course**: Micro Credential Course - 4 (MCC - 4)
+- **Course Name**: Introduction to web programming
+- **Course Code**: 24AIM242
 
 ---
 
