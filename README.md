@@ -37,6 +37,10 @@ This project is built with pure HTML, CSS, and Vanilla JavaScript with **zero de
 
 Page: [`https://sribalajimachani.github.io/doubleit/`](https://sribalajimachani.github.io/doubleit/)
 
+## Source Code
+
+The code is available on GitHub at [`https://github.com/sribalajimachani/doubleit`](https://github.com/sribalajimachani/doubleit).
+
 ---
 
 ## Project Files
