@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" id="meta-theme-color" content="#EEF3E2" />
+  <title>Double It Recipe Book | Pulp &amp; Peel Kitchen</title>
+
+  <!-- Inline SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%237B3FE4'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='system-ui,-apple-system,sans-serif' font-weight='800' font-size='28' fill='%23FFFFFF'%3E2x%3C/text%3E%3C/svg%3E" />
+
+  <!-- Google Fonts: Plus Jakarta Sans (M3 UI), Cormorant Garamond (Handmade Serif), JetBrains Mono (Tabular Numbers) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- STICKY NAVIGATION BAR (No 2X Placeholder) -->
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Primary Navigation">
+      <a href="#menu" class="brand-lockup" id="nav-brand-link">
+        <span>Pulp &amp; Peel</span>
+        <span class="brand-serif">Kitchen</span>
+      </a>
+
+      <!-- Desktop Inline Page Switcher -->
+      <div class="desktop-nav-tabs" role="tablist" aria-label="Recipe Book Pages">
+        <button type="button" class="nav-pill active" id="nav-btn-menu" role="tab" aria-selected="true" data-target="menu">
+          Page 1: Meal Menu
+        </button>
+        <button type="button" class="nav-pill" id="nav-btn-recipe" role="tab" aria-selected="false" data-target="recipe">
+          Page 2: Recipe Scaler
+        </button>
+      </div>
+
+      <div class="nav-right-actions">
+        <!-- Theme Toggle Button -->
+        <button type="button" class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle light and dark theme" title="Toggle theme">
+          <svg id="theme-icon-svg" width="18" height="18" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M216.7 152.6A91.9 91.9 0 0 1 103.4 39.3a92 92 0 1 0 113.3 113.3Z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <button type="button" class="hamburger-btn" id="hamburger-open-btn" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-drawer-overlay">
+          <span class="hamburger-bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE HAMBURGER MENU DRAWER -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+    <div class="mobile-drawer-sheet">
+      <div class="drawer-top">
+        <span class="drawer-title">Recipe Book</span>
+        <button type="button" class="drawer-close-btn" id="hamburger-close-btn" aria-label="Close Navigation Menu">
+          <svg width="18" height="18" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" aria-hidden="true">
+            <line x1="60" y1="60" x2="196" y2="196"></line>
+            <line x1="196" y1="60" x2="60" y2="196"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="drawer-nav-list">
+        <button type="button" class="drawer-nav-btn active" id="mobile-nav-menu" data-target="menu">
+          <span>Page 1: Meal Menu</span>
+          <svg width="16" height="16" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="96 48 176 128 96 208"></polyline>
+          </svg>
+        </button>
+        <button type="button" class="drawer-nav-btn" id="mobile-nav-recipe" data-target="recipe">
+          <span>Page 2: Recipe Scaler</span>
+          <svg width="16" height="16" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="96 48 176 128 96 208"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <div class="drawer-sub-links">
+        <button type="button" class="drawer-quick-chip" data-open-meal="cake">Cake Recipe</button>
+        <button type="button" class="drawer-quick-chip" data-open-meal="pizza">Pizza Recipe</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ========================================================================
+         PAGE 1: INTERACTIVE FRUIT STICKER HERO & 2-MEAL MENU
+         ======================================================================== -->
+    <div id="view-menu" class="page-view is-visible is-active" role="region" aria-label="Page 1: Meal Menu">
+
+      <!-- INTERACTIVE FRUIT STICKER HERO -->
+      <section class="fsf-hero" id="fsf-hero-root" aria-label="Interactive Recipe Book Hero">
+        <div class="fsf-stage" id="fsf-stage">
+          <div class="fsf-cluster" id="fsf-cluster">
+            <!-- Behind stickers injected here -->
+            <h1 class="fsf-head">
+              <span class="sr-only" id="fsf-sr-title">Portions made, double it!</span>
+              <span class="fsf-line" id="fsf-headline-chars" aria-hidden="true"></span>
+              <button
+                type="button"
+                class="fsf-script"
+                id="fsf-script-btn"
+                aria-label="Cycle handwritten phrase (currently: double it!)"
+              ></button>
+            </h1>
+
+            <p class="fsf-sub">
+              <span style="--i: 0;">Handcrafted single-portion recipes made for your kitchen.</span>
+              <span style="--i: 1;">Pick a meal below and multiply every ingredient instantly by 2!</span>
+            </p>
+            <!-- Foreground stickers injected here -->
+          </div>
+        </div>
+
+        <!-- Quick Links with Wavy SVG Underline -->
+        <div class="fsf-links-wrap">
+          <ul class="fsf-links fsf-rise" style="--i: 0;">
+            <li>
+              <a class="fsf-link" href="#meal-menu-section" id="hero-link-menu">
+                Menu
+                <svg viewBox="0 0 40 6" preserveAspectRatio="none" aria-hidden="true">
+                  <path pathLength="1" d="M1,3C4,0.5 6,0.5 9,3S14,5.5 17,3S22,0.5 25,3S30,5.5 33,3S37,0.5 39,2.5" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="fsf-link" href="#recipe-cake" data-open-meal="cake">
+                Cake Recipe
+                <svg viewBox="0 0 40 6" preserveAspectRatio="none" aria-hidden="true">
+                  <path pathLength="1" d="M1,3C4,0.5 6,0.5 9,3S14,5.5 17,3S22,0.5 25,3S30,5.5 33,3S37,0.5 39,2.5" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="fsf-link" href="#recipe-pizza" data-open-meal="pizza">
+                Pizza Recipe
+                <svg viewBox="0 0 40 6" preserveAspectRatio="none" aria-hidden="true">
+                  <path pathLength="1" d="M1,3C4,0.5 6,0.5 9,3S14,5.5 17,3S22,0.5 25,3S30,5.5 33,3S37,0.5 39,2.5" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Clean Centered Scroll Cue Bar -->
+        <div class="fsf-bar fsf-rise" style="--i: 1;">
+          <a href="#meal-menu-section" class="fsf-scroll-btn">
+            <span>Pick a Meal Below</span>
+            <i aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 3V13M3.5 8.5L8 13L12.5 8.5" />
+              </svg>
+            </i>
+          </a>
+        </div>
+      </section>
+
+      <!-- PAGE 1 MEAL MENU (2 Signature Meals -> Click to open Page 2) -->
+      <section class="menu-section" id="meal-menu-section">
+        <div class="container">
+          <div class="section-header-stack">
+            <span class="section-kicker">Page 1: Meal Menu</span>
+            <h2 class="section-title">Choose a dish to <em>double</em></h2>
+            <p class="section-subtitle">
+              Tap either meal to open its single-person formula on Page 2 and scale every number by 2.
+            </p>
+          </div>
+
+          <div class="meals-grid">
+            <!-- MEAL 1: CAKE -->
+            <article class="meal-card" data-meal-id="cake" tabindex="0" role="button" aria-label="Open Olive Oil and Mascarpone Cake on Page 2">
+              <div class="meal-photo-vessel">
+                <img
+                  src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85"
+                  onerror="this.onerror=null;this.src='https://picsum.photos/seed/artisancake/1000/650';"
+                  alt="Olive Oil and Mascarpone Cake"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="meal-floating-badge">1 Person Base</span>
+              </div>
+              <div class="meal-card-content">
+                <h3 class="meal-card-title">Olive Oil &amp; Mascarpone Cake</h3>
+                <div class="meal-chip-row">
+                  <span class="meal-chip">2 eggs</span>
+                  <span class="meal-chip">1 cup flour</span>
+                  <span class="meal-chip">0.5 cup oil</span>
+                </div>
+                <div class="meal-card-cta">
+                  <span>Open Cake Recipe</span>
+                  <svg width="18" height="18" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="40" y1="128" x2="216" y2="128"></line>
+                    <polyline points="144 56 216 128 144 200"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- MEAL 2: PIZZA -->
+            <article class="meal-card" data-meal-id="pizza" tabindex="0" role="button" aria-label="Open San Marzano and Burrata Pizza on Page 2">
+              <div class="meal-photo-vessel">
+                <img
+                  src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1000&q=85"
+                  onerror="this.onerror=null;this.src='https://picsum.photos/seed/artisanpizza/1000/650';"
+                  alt="San Marzano and Burrata Pizza"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="meal-floating-badge">1 Person Base</span>
+              </div>
+              <div class="meal-card-content">
+                <h3 class="meal-card-title">San Marzano &amp; Burrata Pizza</h3>
+                <div class="meal-chip-row">
+                  <span class="meal-chip">1 dough ball</span>
+                  <span class="meal-chip">0.5 cup tomatoes</span>
+                  <span class="meal-chip">4 oz burrata</span>
+                </div>
+                <div class="meal-card-cta">
+                  <span>Open Pizza Recipe</span>
+                  <svg width="18" height="18" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="40" y1="128" x2="216" y2="128"></line>
+                    <polyline points="144 56 216 128 144 200"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========================================================================
+         PAGE 2: RECIPE VIEW & "DOUBLE RECIPE" ENGINE
+         ======================================================================== -->
+    <div id="view-recipe" class="page-view" role="region" aria-label="Page 2: Recipe Ingredients and Doubler">
+      <section class="recipe-section">
+        <div class="container">
+
+          <!-- Top Bar: Back to Menu + Dish Switcher -->
+          <div class="recipe-top-bar">
+            <button type="button" class="btn-tonal" id="back-to-menu-btn">
+              <svg width="16" height="16" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="216" y1="128" x2="40" y2="128"></line>
+                <polyline points="112 56 40 128 112 200"></polyline>
+              </svg>
+              Back to Menu
+            </button>
+
+            <div class="meal-switcher" role="group" aria-label="Switch Recipe Dish">
+              <button type="button" class="switcher-pill active" data-switch-meal="cake">Cake</button>
+              <button type="button" class="switcher-pill" data-switch-meal="pizza">Pizza</button>
+            </div>
+          </div>
+
+          <div class="recipe-workspace">
+            <!-- Left Summary Card -->
+            <aside class="recipe-dish-panel">
+              <div class="recipe-photo-frame">
+                <img
+                  id="recipe-dish-image"
+                  src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85"
+                  onerror="this.onerror=null;this.src='https://picsum.photos/seed/artisancake/1000/650';"
+                  alt="Selected meal photography"
+                />
+              </div>
+              <div class="recipe-dish-info">
+                <h2 class="recipe-dish-name" id="recipe-dish-title">Olive Oil &amp; Mascarpone Cake</h2>
+                <p class="recipe-dish-blurb" id="recipe-dish-desc">
+                  Tender single-layer sponge with pasture-raised eggs, sifted flour, cold-pressed olive oil, and mascarpone.
+                </p>
+
+                <div class="telemetry-strip">
+                  <div class="telemetry-box">
+                    <div class="telemetry-label">Servings</div>
+                    <div class="telemetry-value" id="telemetry-servings">1 Person</div>
+                  </div>
+                  <div class="telemetry-box">
+                    <div class="telemetry-label">Scale</div>
+                    <div class="telemetry-value" id="telemetry-multiplier">1x</div>
+                  </div>
+                  <div class="telemetry-box">
+                    <div class="telemetry-label">Weight</div>
+                    <div class="telemetry-value" id="telemetry-mass">380 g</div>
+                  </div>
+                </div>
+              </div>
+            </aside>
+
+            <!-- Right Scaler Console + Ingredients + Steps -->
+            <div>
+              <div class="scaler-panel">
+                <div class="scaler-header">
+                  <div>
+                    <h3 class="scaler-heading" id="ingredients-heading">Ingredients for 1 Person</h3>
+                    <p class="scaler-subline" id="multiplier-status-line">Tap Double Recipe to multiply all numbers by 2</p>
+                  </div>
+
+                  <div class="scaler-controls">
+                    <button type="button" class="btn-double-recipe" id="double-recipe-btn">
+                      <svg width="17" height="17" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="round" aria-hidden="true">
+                        <line x1="128" y1="40" x2="128" y2="216"></line>
+                        <line x1="40" y1="128" x2="216" y2="128"></line>
+                      </svg>
+                      Double Recipe
+                    </button>
+                    <button type="button" class="btn-reset-recipe" id="reset-recipe-btn">Reset (1x)</button>
+                  </div>
+                </div>
+
+                <!-- Dynamic Ingredients Grid -->
+                <div class="ingredients-grid" id="ingredients-list-container" aria-live="polite"></div>
+              </div>
+
+              <!-- Dynamic Preparation Steps -->
+              <div class="steps-panel">
+                <h3 class="steps-heading">Quick Method</h3>
+                <div class="steps-list" id="steps-list-container"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- GROUP 5 MEMBERS FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-header">
+        <span class="footer-brand-title">Double It Recipe Book</span>
+        <span class="footer-group-badge">Group 5 Members</span>
+      </div>
+
+      <div class="footer-members-grid">
+        <div
+          class="member-card member-card--easter"
+          id="easter-egg-card"
+          tabindex="0"
+          aria-label="Machani Sri Balaji, roll number DL.AI.U4AIM24015"
+        >
+          <span class="member-name ee-name-wrap" id="easter-egg-name" data-text="Machani Sri Balaji">Machani Sri Balaji</span>
+          <span class="member-id">DL.AI.U4AIM24015</span>
+        </div>
+        <div class="member-card">
+          <span class="member-name">Palempati Poojitha</span>
+          <span class="member-id">DL.AI.U4AIM24011</span>
+        </div>
+        <div class="member-card">
+          <span class="member-name">Nishita Mahesh</span>
+          <span class="member-id">DL.AI.U4AIM24009</span>
+        </div>
+        <div class="member-card">
+          <span class="member-name">Bathula Naga Krishna Manohar</span>
+          <span class="member-id">DL.AI.U4AIM24007</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-viewport" aria-live="polite">
+    <div class="toast-pill" id="toast-notification"></div>
+  </div>
+
+  <!-- ==========================================================================
+       APPLICATION JAVASCRIPT (100% Self-Contained Pure Vanilla JS)
+       ========================================================================== -->
+    <script src="script.js" defer></script>
+</body>
+</html>
